@@ -14,10 +14,14 @@ public class DefaultInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.info("preHandle");
-        logger.info("TestToken : " + request.getHeader("TestToken"));
+        //logger.info("TestToken : " + request.getHeader("TestToken"));
+        logger.info("AccessToken : " + request.getHeader("Authorization"));
 
-        request.setAttribute("tempValue", "10101");
-        response.setHeader("tempTest", "01010");
+        //request.setAttribute("tempValue", "10101");
+        //response.setHeader("tempTest", "01010");
+        
+        // request의 Attreibute에 공간 만들기
+        request.setAttribute("reqUserId", null);
 
         return true;
     }
